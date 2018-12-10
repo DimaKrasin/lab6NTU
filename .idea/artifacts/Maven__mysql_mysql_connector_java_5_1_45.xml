@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact name="Maven__mysql_mysql-connector-java_5_1_45">
+    <output-path>$PROJECT_DIR$/out/artifacts/Maven__mysql_mysql_connector_java_5_1_45</output-path>
+    <root id="root">
+      <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.45" />
+      <element id="artifact" artifact-name="validation-api-2_0_0_Final_jar_" />
+    </root>
+  </artifact>
+</component>
