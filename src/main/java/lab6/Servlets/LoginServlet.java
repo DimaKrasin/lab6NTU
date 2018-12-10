@@ -34,9 +34,15 @@ public class LoginServlet extends HttpServlet {
 
             User user = userServiseDAO.getUserByLoginAndPassword(login,password);
             if(user != null){
-                System.out.println("В бд найден пользователь:");
-                user.toString();
-                System.out.println("айди = "+user.getId());
+
+                if(user.getRole().equals("user")){
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("https://www.boschcarservice.com/ua/ru");
+                    dispatcher.forward(request, response);
+                }else {
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("http://sto100.com.ua/");
+                    dispatcher.forward(request, response);
+                }
+
             }else {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/index.html");
                 dispatcher.forward(request, response);
@@ -94,6 +100,10 @@ public class LoginServlet extends HttpServlet {
             long count = users.stream().filter(u -> u.getLogin().equals(login)).count();
             if(count==0){
                 userServiseDAO.insertUser(user);
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("https://www.boschcarservice.com/ua/ru");
+                dispatcher.forward(request, response);
+
             }
 
         }else {
